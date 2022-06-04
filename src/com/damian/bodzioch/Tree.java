@@ -54,12 +54,14 @@ public class Tree {
     private void findPlace (int value, Node root){
         if (value > root.getValue()){
             if (root.getBigger() == null){
+                root.setBigger(new Node());
                 root.getBigger().setValue(value);
             } else {
                 findPlace(value, root.getBigger());
             }
         } else if (value < root.getValue()){
             if (root.getSmaller() == null){
+                root.setSmaller(new Node());
                 root.getSmaller().setValue(value);
             } else {
                 findPlace(value, root.getSmaller());
