@@ -7,8 +7,7 @@ public class Tree {
         if (this.root == null){
             this.root = new Node(value);
         } else {
-            Node newNode = findPlace(value, root);
-            newNode = new Node(value);
+            findPlace(value, this.root).se
         }
 
     }
@@ -35,11 +34,21 @@ public class Tree {
     }
 
     private int max(Node node){
-        max
+        if (node.getBigger() != null){
+            max(node.getBigger());
+        }
+        return node.getValue();
     }
 
     public int min(){
+        return min(this.root);
+    }
 
+    private int min(Node node){
+        if (node.getSmaller() != null){
+            max(node.getSmaller());
+        }
+        return node.getValue();
     }
 
     private Node findPlace (int value, Node root){

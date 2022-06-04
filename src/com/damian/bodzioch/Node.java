@@ -5,14 +5,12 @@ public class Node {
     private Node bigger;
     private Node smaller;
 
-    
+
     public Node() {
     }
 
     public Node(int value){
         this.value = value;
-        this.bigger = new Node();
-        this.smaller = new Node();
     }
 
     public int getValue() {
