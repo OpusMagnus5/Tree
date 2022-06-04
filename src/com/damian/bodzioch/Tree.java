@@ -7,7 +7,7 @@ public class Tree {
         if (this.root == null){
             this.root = new Node(value);
         } else {
-            findPlace(value, this.root).se
+            findPlace(value, this.root);
         }
 
     }
@@ -51,20 +51,19 @@ public class Tree {
         return node.getValue();
     }
 
-    private Node findPlace (int value, Node root){
+    private void findPlace (int value, Node root){
         if (value > root.getValue()){
             if (root.getBigger() == null){
-                return root;
+                root.getBigger().setValue(value);
             } else {
                 findPlace(value, root.getBigger());
             }
         } else if (value < root.getValue()){
             if (root.getSmaller() == null){
-                return root;
+                root.getSmaller().setValue(value);
             } else {
                 findPlace(value, root.getSmaller());
             }
         }
-        return root;
     }
 }
